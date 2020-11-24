@@ -30,7 +30,7 @@
       </dependency>
 
    </dependencies>
-
+<!--  
    <build>
       <plugins>
          <plugin>
@@ -49,7 +49,7 @@
                </archive>
                <modules>
 
-                  <!-- Início: Módulos do componente FOTON-step-manager -->
+                 
                   <ejbModule>
                      <groupId>la.foton.treinamento</groupId>
                      <artifactId>minibanco-core</artifactId>
@@ -61,5 +61,5 @@
       </plugins>
       <finalName>${project.artifactId}</finalName>
    </build>
-
+	-->
 </project>

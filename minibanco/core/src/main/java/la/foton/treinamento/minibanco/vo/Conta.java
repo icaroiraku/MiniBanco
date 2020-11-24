@@ -2,35 +2,42 @@ package la.foton.treinamento.minibanco.vo;
 
 import java.math.BigDecimal;
 
-public class Conta {
-	
-	
-	protected Long numeroConta = 1234123456789L;
+import la.foton.treinamento.minibanco.core.ContaCorrenteService;
+import la.foton.treinamento.minibanco.core.ContaPoupancaService;
+import la.foton.treinamento.minibanco.enums.TipoDaConta;
 
-	private Integer numeroAgenciaConta;
+public class Conta {
+
+	protected Long numeroAgenciaConta;
 
 	private BigDecimal saldoDisponivel;
-	
 
 	private boolean inativa;
 	
+	private String nomeGerente;
 	
+	private TipoDaConta tipoDaConta;
 	
+	public Conta() {
+		
+	}
 	
-
-	public Long getNumeroConta() {
-		return numeroConta;
+	public Conta(Long numeroAgenciaConta, BigDecimal saldoDisponivel, boolean inativa, String nomeGerente, TipoDaConta tipoDaConta) {
+		
+		this.numeroAgenciaConta = numeroAgenciaConta;
+		this.saldoDisponivel = saldoDisponivel;
+		this.inativa = inativa;
+		this.nomeGerente = nomeGerente;
+		this.tipoDaConta = tipoDaConta;
+		
 	}
 
-	public void setNumeroConta(Long numeroConta) {
-		this.numeroConta = numeroConta;
-	}
 
-	public Integer getNumeroAgenciaConta() {
+	public Long getNumeroAgenciaConta() {
 		return numeroAgenciaConta;
 	}
 
-	public void setNumeroAgenciaConta(Integer numeroAgenciaConta) {
+	public void setNumeroAgenciaConta(long numeroAgenciaConta) {
 		this.numeroAgenciaConta = numeroAgenciaConta;
 	}
 
@@ -41,19 +48,13 @@ public class Conta {
 	public void setSaldoDisponivel(BigDecimal saldoDisponivel) {
 		this.saldoDisponivel = saldoDisponivel;
 	}
-	
-	public int getnumeroConta(){
-		
-		 return ContaCorrenteService.extraiNumeroConta(numeroConta);
-		
-	}
-	
+
 
 	
-	public  boolean inativa() {
-		
+	public boolean inativa() {
+
 		return inativa;
-		
+
 	}
 
 	public boolean isInativa() {
@@ -63,39 +64,25 @@ public class Conta {
 	public void setInativa(boolean inativa) {
 		this.inativa = inativa;
 	}
-	
-	
-	
 
-
-
-
-	public  enum TipoBloqueio {
-		
-		SEM_BLOQUEIO(0),
-		BLOQUEIO_TOTAL(1),
-		BLOQUEIO_DEBITO(2),
-		BLOQUEIO_CREDITO(3);
-		
-		
-		public final int tipoBloqueio;	
-		
-		private TipoBloqueio (int tipoBloqueio) {
-			this.tipoBloqueio = tipoBloqueio;
-		}
-		
-		public static void main(String[] args) {
-			
-			long numeroConta = 1234123456789L;
-			System.out.println("Numero da Conta" + numeroConta );
-			int conta =(int)(numeroConta % 1000000000L);
-			System.out.println("Conta:"+ conta);
-			
-		}
-	
-		
-		
-		 
+	public String getNomeGerente() {
+		return nomeGerente;
 	}
+
+	public void setNomeGerente(String nomeGerente) {
+		this.nomeGerente = nomeGerente;
+	}
+
+	public TipoDaConta getTipoDaConta() {
+		return tipoDaConta;
+	}
+
+	public void setTipoDaConta(TipoDaConta tipoDaConta) {
+		this.tipoDaConta = tipoDaConta;
+	}
+
 	
-}
+
+	}
+
+

@@ -14,9 +14,7 @@ public class LocalDateUtils {
 				int hora = horaHHMMSS / 10000;
 				int minuto = (horaHHMMSS % 10000) / 100;
 				int segundo = horaHHMMSS % 100;
-
-				
-					
+	
 				
 					return LocalDate.now().atTime(hora, minuto, segundo);
 

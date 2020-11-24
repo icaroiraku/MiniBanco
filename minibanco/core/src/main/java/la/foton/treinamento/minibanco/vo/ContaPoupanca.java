@@ -2,6 +2,8 @@ package la.foton.treinamento.minibanco.vo;
 
 import java.math.BigDecimal;
 
+import la.foton.treinamento.minibanco.enums.TipoDaConta;
+
 public class ContaPoupanca extends Conta {
 
 		 private String nomeDaPoupanca ;
@@ -9,10 +11,20 @@ public class ContaPoupanca extends Conta {
 		  private Integer variacaoPoupanca;
 		
 		 private BigDecimal rendimento;
-
-		
 		 
 		 
+		 public ContaPoupanca() {
+			 
+		 }
+		 
+		 public ContaPoupanca(Long numeroAgenciaConta, BigDecimal saldoDisponivel,boolean inativa,String nomeGerente,
+				 ContaPoupanca tipoDaContaPoupanca)
+		 {
+		 super(numeroAgenciaConta, saldoDisponivel, inativa, nomeGerente, TipoDaConta.CONTA_POUPANCA);
+		 
+		 this.setSaldoDisponivel(BigDecimal.ZERO);
+			 
+		 }
 
 		public String getNomeDaPoupanca() {
 			return nomeDaPoupanca;
@@ -37,23 +49,8 @@ public class ContaPoupanca extends Conta {
 		public void setRendimento(BigDecimal rendimento) {
 			this.rendimento = rendimento;
 		}
-		
-		@Override
-		public String toString() {
-			String s = "ContaPoupanca[";
-			s +="rendimento:" + rendimento;
-			s += super.toString();
-			s +="]";
-			
-			return s;
-				
-		}
-		
-		public void calcularRendimento (double saldoDisponivel) {
-			
-			saldoDisponivel-= .006;
-			
-		}
+		 
+
 			
 			}
 	
